@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-ff-sans-normal text-white bg-dark-500;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  body.home {
+    background-image: url("./assets/home/background-home-mobile.jpg");
+  }
+  body.destination {
+    background-image: url("./assets/destination/background-destination-mobile.jpg");
+  }
+  body.crew {
+    background-image: url("./assets/crew/background-crew-mobile.jpg");
+  }
+  body.technology {
+    background-image: url("./assets/technology/background-technology-mobile.jpg");
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-ff-serif;
+  }
+  h5 {
+    @apply font-ff-sans-cond;
+  }
+
+  @media (min-width: 480px) {
+    body.home {
+      background-image: url("./assets/home/background-home-tablet.jpg");
+    }
+    body.destination {
+      background-image: url("./assets/destination/background-destination-tablet.jpg");
+    }
+    body.crew {
+      background-image: url("./assets/crew/background-crew-tablet.jpg");
+    }
+    body.technology {
+      background-image: url("./assets/technology/background-technology-tablet.jpg");
+    }
+  }
+  @media (min-width: 760px) {
+    body.home {
+      background-image: url("./assets/home/background-home-desktop.jpg");
+    }
+    body.destination {
+      background-image: url("./assets/destination/background-destination-desktop.jpg");
+    }
+    body.crew {
+      background-image: url("./assets/crew/background-crew-desktop.jpg");
+    }
+    body.technology {
+      background-image: url("./assets/technology/background-technology-desktop.jpg");
+    }
+  }
 }
