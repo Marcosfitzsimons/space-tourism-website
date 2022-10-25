@@ -12,6 +12,26 @@ const Header = () => {
     setShowMenu((prevValue) => !prevValue);
   };
 
+  const handleHomeBg = () => {
+    document.body.className = "";
+    document.body.classList.add("home");
+  };
+
+  const handleDestinationBg = () => {
+    document.body.className = "";
+    document.body.classList.add("destination");
+  };
+
+  const handleCrewBg = () => {
+    document.body.className = "";
+    document.body.classList.add("crew");
+  };
+
+  const handleTechnologyBg = () => {
+    document.body.className = "";
+    document.body.classList.add("technology");
+  };
+
   return (
     <header className="w-full">
       <div className="w-[85%] md:w-full md:pl-8 lg:pl-12 xl:pl-24 mx-auto flex items-center justify-between py-4 md:py-0">
@@ -21,7 +41,7 @@ const Header = () => {
         <nav className="hidden md:flex md:items-center lg:w-[95%]">
           <div className="hidden relative left-7 z-40 h-[.1rem] bg-gray-600/60 lg:flex lg:w-[100%]"></div>
           <ul className="px-14 flex items-center gap-10 bg-white/5 backdrop-blur-xl md:px-20 md:gap-12 lg:px-32 xl:px-40 xl:pr-56 lg:gap-16">
-            <li>
+            <li onClick={handleHomeBg}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -38,7 +58,7 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            <li onClick={handleDestinationBg}>
               <NavLink
                 to="destination"
                 className={({ isActive }) =>
@@ -55,7 +75,7 @@ const Header = () => {
                 Destination
               </NavLink>
             </li>
-            <li>
+            <li onClick={handleCrewBg}>
               <NavLink
                 to="crew"
                 className={({ isActive }) =>
@@ -72,7 +92,7 @@ const Header = () => {
                 Crew
               </NavLink>
             </li>
-            <li>
+            <li onClick={handleTechnologyBg}>
               <NavLink
                 to="technology"
                 className={({ isActive }) =>
@@ -120,7 +140,12 @@ const Header = () => {
                 showMenu ? "translate-x-0" : "translate-x-[500px]"
               } flex flex-col gap-1 `}
             >
-              <li onClick={handleShowMenu}>
+              <li
+                onClick={() => {
+                  handleShowMenu();
+                  handleHomeBg();
+                }}
+              >
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
@@ -135,7 +160,12 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li onClick={handleShowMenu}>
+              <li
+                onClick={() => {
+                  handleShowMenu();
+                  handleDestinationBg();
+                }}
+              >
                 <NavLink
                   to="destination"
                   className={({ isActive }) =>
@@ -150,7 +180,12 @@ const Header = () => {
                   Destination
                 </NavLink>
               </li>
-              <li onClick={handleShowMenu}>
+              <li
+                onClick={() => {
+                  handleShowMenu();
+                  handleCrewBg();
+                }}
+              >
                 <NavLink
                   to="crew"
                   className={({ isActive }) =>
@@ -165,7 +200,12 @@ const Header = () => {
                   Crew
                 </NavLink>
               </li>
-              <li onClick={handleShowMenu}>
+              <li
+                onClick={() => {
+                  handleShowMenu();
+                  handleTechnologyBg();
+                }}
+              >
                 <NavLink
                   to="technology"
                   className={({ isActive }) =>
