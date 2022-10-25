@@ -6,7 +6,7 @@ const Technology = ({ technology }) => {
   const [index, setIndex] = useState(0);
   return (
     <section className="technology h-[80vh] lg: pt-4 md:pt-12 relative">
-      <div className="flex flex-col items-center gap-2 md:grid md:grid-rows-[100px_1fr] md:grid-cols-12">
+      <div className="flex flex-col items-center gap-8 md:grid md:grid-rows-[100px_1fr] md:grid-cols-12">
         <div className="col-start-2 col-end-12 row-start-1 row-end-2 xl:col-start-3">
           <SectionTitle number="03" text="Space launch 101" />
         </div>
@@ -31,14 +31,14 @@ const Technology = ({ technology }) => {
               3
             </div>
           </nav>
-          <div className="flex flex-col items-center lg:items-start lg:gap-5">
+          <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-5">
             <p className="uppercase font-ff-sans-cond text-fs-200 text-accent-500 lg:text-base">
               The terminology...
             </p>
             <h4 className="uppercase font-ff-serif text-2xl sm:text-3xl lg:text-5xl 2xl:text-6xl">
               Launch Vehicle
             </h4>
-            <p className="text-center text-accent-500 pt-2 sm:w-[70%] lg:text-start xl:w-[80%] xl:text-lg xl:leading-8">
+            <p className="text-center text-accent-500 pt-2 px-4 sm:px-0 sm:w-[70%] lg:w-full lg:text-start 2xl:w-[80%] xl:text-lg xl:leading-8">
               A launch vehicle or carrier rocket is a rocket-propelled vehicle
               used to carry a payload from Earth's surface to space, usually to
               Earth orbit or beyond. Our WEB-X carrier rocket is the most
