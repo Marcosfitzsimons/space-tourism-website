@@ -5,7 +5,7 @@ import SectionTitle from "../components/SectionTitle";
 const Destination = ({ destinations }) => {
   const [index, setIndex] = useState(0);
 
-  const destinationNav = [
+  const destinationTabs = [
     {
       id: 1,
       name: "Moon",
@@ -34,18 +34,20 @@ const Destination = ({ destinations }) => {
           </div>
           <div className="flex flex-col items-center gap-3 w-full md:gap-5 lg:w-[50%] lg:items-start">
             <div className="w-[80%] md:w-[50%] max-w-[320px] flex justify-center text-lg text-accent-500 gap-6 font-ff-sans-cond uppercase tracking-widest lg:justify-start">
-              {destinationNav.map((navItem) => {
+              {destinationTabs.map((tab) => {
                 return (
                   <button
                     className={`${
-                      index === navItem.id - 1
+                      index === tab.id - 1
                         ? "border-b-white"
                         : "border-b-transparent"
                     } cursor-pointer py-2 border-b-2 text-white`}
-                    onClick={() => setIndex(navItem.id - 1)}
-                    key={navItem.id}
+                    onClick={() => setIndex(tab.id - 1)}
+                    key={tab.id}
+                    aria-selected={index === tab.id - 1 ? "true" : "false"}
+                    role="tab"
                   >
-                    {navItem.name}
+                    {tab.name}
                   </button>
                 );
               })}
