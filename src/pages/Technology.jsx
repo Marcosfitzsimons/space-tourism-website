@@ -1,11 +1,34 @@
 import React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 
 const Technology = ({ technology }) => {
   const [index, setIndex] = useState(0);
+
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: "100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: 0.2,
+        stiffness: 50,
+      },
+    },
+  };
+
   return (
-    <section className="technology h-[80vh] lg: pt-4 md:pt-12 relative">
+    <motion.section
+      className="technology h-[80vh] lg: pt-4 md:pt-12 relative"
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex flex-col items-center gap-8 md:grid md:grid-rows-[100px_1fr] md:grid-cols-12">
         <div className="col-start-2 col-end-12 row-start-1 row-end-2 xl:col-start-3">
           <SectionTitle number="03" text="Space launch 101" />
@@ -48,7 +71,7 @@ const Technology = ({ technology }) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

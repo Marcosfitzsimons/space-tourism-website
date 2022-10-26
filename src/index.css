@@ -12,6 +12,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    background-image: url("./assets/home/background-home-mobile.jpg");
+    overflow: hidden;
   }
   body.home {
     background-image: url("./assets/home/background-home-mobile.jpg");
@@ -36,6 +38,9 @@
   }
 
   @media (min-width: 480px) {
+    body {
+      background-image: url("./assets/home/background-home-tablet.jpg");
+    }
     body.home {
       background-image: url("./assets/home/background-home-tablet.jpg");
     }
@@ -50,6 +55,9 @@
     }
   }
   @media (min-width: 760px) {
+    body {
+      background-image: url("./assets/home/background-home-desktop.jpg");
+    }
     body.home {
       background-image: url("./assets/home/background-home-desktop.jpg");
     }

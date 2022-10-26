@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import logo from "../assets/shared/logo.svg";
 
 const Header = () => {
@@ -30,6 +31,21 @@ const Header = () => {
   const handleTechnologyBg = () => {
     document.body.className = "";
     document.body.classList.add("technology");
+  };
+
+  const mobileNavVariants = {
+    closed: {
+      x: 400,
+      opacity: 0,
+    },
+    open: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 0.3,
+      },
+    },
   };
 
   return (
@@ -131,15 +147,14 @@ const Header = () => {
           )}
         </button>
         {showMenu && (
-          <nav
+          <motion.nav
+            variants={mobileNavVariants}
+            initial="closed"
+            animate={showMenu ? "open" : "closed"}
             id="nav-mobile"
-            className="nav-mobile absolute z-30 inset-y-0 right-0 left-[30%] py-[min(20rem,15vh)] px-8 bg-white/5 backdrop-blur-xl uppercase font-ff-sans-cond text-fs-400 tracking-widest md:hidden transition-transform"
+            className="nav-mobile absolute z-30 inset-y-0 right-0 left-[30%] py-[min(20rem,15vh)] px-8 bg-white/5 backdrop-blur-xl uppercase font-ff-sans-cond text-fs-400 tracking-widest md:hidden"
           >
-            <ul
-              className={`${
-                showMenu ? "translate-x-0" : "translate-x-[500px]"
-              } flex flex-col gap-1 `}
-            >
+            <ul className="flex flex-col gap-1">
               <li
                 onClick={() => {
                   handleShowMenu();
@@ -221,7 +236,7 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-          </nav>
+          </motion.nav>
         )}
       </div>
     </header>

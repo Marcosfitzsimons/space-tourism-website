@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 
 const Destination = ({ destinations }) => {
@@ -24,8 +25,29 @@ const Destination = ({ destinations }) => {
     },
   ];
 
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: "100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: 0.2,
+        stiffness: 50,
+      },
+    },
+  };
+
   return (
-    <section className="destination h-[80vh] lg:h-[90vh] pt-4 md:pt-12">
+    <motion.section
+      className="destination h-[80vh] lg:h-[90vh] pt-4 md:pt-12"
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="h-[90%] w-[85%] md:w-[90%] xl:max-w-[1300px] mx-auto flex flex-col items-center gap-10">
         <SectionTitle number="01" text="Pick your destination" />
         <div className="h-full flex flex-col items-center gap-10 lg:flex-row">
@@ -79,7 +101,7 @@ const Destination = ({ destinations }) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

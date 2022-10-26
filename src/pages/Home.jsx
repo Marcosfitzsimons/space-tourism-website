@@ -1,9 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: "100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: 0.2,
+        stiffness: 50,
+      },
+    },
+  };
+
   return (
-    <section className="pt-8 h-[80vh] lg:h-[90vh]">
+    <motion.section
+      className="pt-8 h-[80vh] lg:h-[90vh]"
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="h-full w-[85%] xl:max-w-[1300px] mx-auto flex flex-col items-center justify-between lg:flex-row">
         <div className="flex flex-col items-center gap-3 lg:gap-0 lg:items-start lg:w-[50%]">
           <h1 className="flex flex-col items-center uppercase text-accent-500 font-ff-sans-cond text-fs-300 md:text-[1.5rem] lg:text-fs-500 lg:items-start">
@@ -29,7 +51,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

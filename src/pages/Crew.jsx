@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 
 const Crew = ({ crew }) => {
@@ -25,8 +26,29 @@ const Crew = ({ crew }) => {
     },
   ];
 
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: "100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: 0.2,
+        stiffness: 50,
+      },
+    },
+  };
+
   return (
-    <section className="crew h-[80vh] lg:h-[90vh] pt-4 md:pt-12">
+    <motion.section
+      className="crew h-[80vh] lg:h-[90vh] pt-4 md:pt-12"
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="h-[90%] w-[85%] md:w-[90%] xl:max-w-[1300px] mx-auto flex flex-col items-center gap-10">
         <SectionTitle number="02" text="Meet your crew" />
         <div className="h-full flex flex-col items-center gap-10 lg:flex-row lg:w-full lg:items-end lg:mb-16">
@@ -65,7 +87,7 @@ const Crew = ({ crew }) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
