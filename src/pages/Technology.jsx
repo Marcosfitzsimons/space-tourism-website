@@ -30,13 +30,16 @@ const Technology = ({ technology }) => {
       opacity: 1,
       y: 0,
       transition: {
+        delay: 0.2,
         type: "spring",
         mass: 0.8,
         damping: 10,
         stiffness: 50,
-        when: "beforeChildren",
-        staggerChildren: 0.2,
       },
+    },
+    exit: {
+      y: "-100vh",
+      transition: { ease: "easeInOut" },
     },
   };
 
@@ -57,6 +60,7 @@ const Technology = ({ technology }) => {
       variants={sectionVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <div className="flex flex-col items-center gap-8 md:grid md:grid-rows-[100px_1fr] md:grid-cols-12">
         <div className="col-start-2 col-end-12 row-start-1 row-end-2 xl:col-start-3">

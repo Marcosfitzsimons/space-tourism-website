@@ -35,13 +35,16 @@ const Crew = ({ crew }) => {
       opacity: 1,
       y: 0,
       transition: {
+        delay: 0.2,
         type: "spring",
         mass: 0.8,
         damping: 10,
         stiffness: 50,
-        when: "beforeChildren",
-        staggerChildren: 0.2,
       },
+    },
+    exit: {
+      y: "-100vh",
+      transition: { ease: "easeInOut" },
     },
   };
 
@@ -62,6 +65,7 @@ const Crew = ({ crew }) => {
       variants={sectionVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <div className="h-[90%] w-[85%] md:w-[90%] xl:max-w-[1300px] mx-auto flex flex-col items-center gap-10">
         <SectionTitle number="02" text="Meet your crew" />

@@ -17,11 +17,16 @@ const Home = () => {
       opacity: 1,
       y: 0,
       transition: {
+        delay: 0.2,
         type: "spring",
         mass: 0.8,
         damping: 10,
         stiffness: 50,
       },
+    },
+    exit: {
+      y: "-100vh",
+      transition: { ease: "easeInOut" },
     },
   };
 
@@ -31,6 +36,7 @@ const Home = () => {
       variants={sectionVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <div className="h-full w-[85%] xl:max-w-[1300px] mx-auto flex flex-col items-center justify-between lg:flex-row">
         <div className="flex flex-col items-center gap-3 lg:gap-0 lg:items-start lg:w-[50%]">

@@ -1,4 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+
+
 import Header from './components/Header'
 import Home from './pages/Home'
 import Destination from './pages/Destination'
@@ -24,6 +27,8 @@ import imgSpaceCapsuleLandscape from './assets/technology/image-space-capsule-la
 
 
 function App() {
+
+  const location = useLocation()
 
   const destinations = [
     {
@@ -130,13 +135,16 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='destination' element={<Destination destinations={destinations} />} />
-          <Route path='crew' element={<Crew crew={crew} />} />
-          <Route path='technology' element={<Technology technology={technology} />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <AnimatePresence>
+          <Routes location={location} key={location.key}>
+            <Route path='/' exact element={<Home />} />
+            <Route path='destination' element={<Destination destinations={destinations} />} />
+            <Route path='crew' element={<Crew crew={crew} />} />
+            <Route path='technology' element={<Technology technology={technology} />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </AnimatePresence>
+
       </main>
     </div>
   );
