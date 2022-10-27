@@ -51,7 +51,7 @@ const Header = () => {
   return (
     <header className="w-full">
       <div className="w-[85%] md:w-full md:pl-8 lg:pl-12 xl:pl-24 mx-auto flex items-center justify-between py-4 md:py-0">
-        <Link className="logo-container" to="/">
+        <Link className="logo-container" to="/" onClick={handleHomeBg}>
           <img src={logo} alt="space tourism logo" />
         </Link>
         <nav className="hidden md:flex md:items-center lg:w-[95%]">
