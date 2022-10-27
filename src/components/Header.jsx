@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/shared/logo.svg";
 
 const Header = () => {
@@ -45,6 +45,10 @@ const Header = () => {
         type: "tween",
         duration: 0.3,
       },
+    },
+    exit: {
+      x: "100vw",
+      transition: { ease: "easeInOut" },
     },
   };
 
@@ -129,11 +133,10 @@ const Header = () => {
         </nav>
         <button
           className="menu-toggle md:hidden z-50"
-          aria-controls="nav-mobile"
+          aria-controls="mobilenav"
+          aria-expanded={showMenu ? "true" : "false"}
         >
-          <span className="sr-only" aria-expanded="false">
-            Menu
-          </span>
+          <span className="sr-only">Menu</span>
           {!showMenu ? (
             <FiMenu
               className="text-3xl cursor-pointer text-accent-500"
@@ -146,98 +149,102 @@ const Header = () => {
             />
           )}
         </button>
-        {showMenu && (
-          <motion.nav
-            variants={mobileNavVariants}
-            initial="closed"
-            animate={showMenu ? "open" : "closed"}
-            id="nav-mobile"
-            className="nav-mobile absolute z-30 inset-y-0 right-0 left-[30%] py-[min(20rem,15vh)] px-8 bg-white/5 backdrop-blur-xl uppercase font-ff-sans-cond text-fs-400 tracking-widest md:hidden"
-          >
-            <ul className="flex flex-col gap-1">
-              <li
-                onClick={() => {
-                  handleShowMenu();
-                  handleHomeBg();
-                }}
-              >
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "border-b border-b-white"
-                        : "hover:border-b-white/20 border-b-transparent"
-                    } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
-                  }
+        <AnimatePresence>
+          {showMenu && (
+            <motion.nav
+              key="mobilenav"
+              variants={mobileNavVariants}
+              initial="closed"
+              animate="open"
+              exit="exit"
+              id="mobilenav"
+              className="nav-mobile absolute z-30 inset-y-0 right-0 left-[30%] py-[min(20rem,15vh)] px-8 bg-white/5 backdrop-blur-xl uppercase font-ff-sans-cond text-fs-400 tracking-widest md:hidden"
+            >
+              <ul className="flex flex-col gap-1">
+                <li
+                  onClick={() => {
+                    handleShowMenu();
+                    handleHomeBg();
+                  }}
                 >
-                  <span className="font-bold pr-1">01</span>
-                  Home
-                </NavLink>
-              </li>
-              <li
-                onClick={() => {
-                  handleShowMenu();
-                  handleDestinationBg();
-                }}
-              >
-                <NavLink
-                  to="destination"
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "border-b-white"
-                        : "hover:border-b-white/20 border-b-transparent"
-                    } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
-                  }
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "border-b border-b-white"
+                          : "hover:border-b-white/20 border-b-transparent"
+                      } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
+                    }
+                  >
+                    <span className="font-bold pr-1">01</span>
+                    Home
+                  </NavLink>
+                </li>
+                <li
+                  onClick={() => {
+                    handleShowMenu();
+                    handleDestinationBg();
+                  }}
                 >
-                  <span className="font-bold">02</span>
-                  Destination
-                </NavLink>
-              </li>
-              <li
-                onClick={() => {
-                  handleShowMenu();
-                  handleCrewBg();
-                }}
-              >
-                <NavLink
-                  to="crew"
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "border-b-white"
-                        : "hover:border-b-white/20 border-b-transparent"
-                    } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
-                  }
+                  <NavLink
+                    to="destination"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "border-b-white"
+                          : "hover:border-b-white/20 border-b-transparent"
+                      } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
+                    }
+                  >
+                    <span className="font-bold">02</span>
+                    Destination
+                  </NavLink>
+                </li>
+                <li
+                  onClick={() => {
+                    handleShowMenu();
+                    handleCrewBg();
+                  }}
                 >
-                  <span className="font-bold">03</span>
-                  Crew
-                </NavLink>
-              </li>
-              <li
-                onClick={() => {
-                  handleShowMenu();
-                  handleTechnologyBg();
-                }}
-              >
-                <NavLink
-                  to="technology"
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "border-b-white"
-                        : "hover:border-b-white/20 border-b-transparent"
-                    } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
-                  }
+                  <NavLink
+                    to="crew"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "border-b-white"
+                          : "hover:border-b-white/20 border-b-transparent"
+                      } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
+                    }
+                  >
+                    <span className="font-bold">03</span>
+                    Crew
+                  </NavLink>
+                </li>
+                <li
+                  onClick={() => {
+                    handleShowMenu();
+                    handleTechnologyBg();
+                  }}
                 >
-                  <span className="font-bold">04</span>
-                  Technology
-                </NavLink>
-              </li>
-            </ul>
-          </motion.nav>
-        )}
+                  <NavLink
+                    to="technology"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "border-b-white"
+                          : "hover:border-b-white/20 border-b-transparent"
+                      } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
+                    }
+                  >
+                    <span className="font-bold">04</span>
+                    Technology
+                  </NavLink>
+                </li>
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
