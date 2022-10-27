@@ -13,7 +13,8 @@ const Home = () => {
       y: 0,
       transition: {
         type: "spring",
-        delay: 0.2,
+        mass: 0.8,
+        damping: 10,
         stiffness: 50,
       },
     },
