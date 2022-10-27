@@ -66,7 +66,7 @@ const Crew = ({ crew }) => {
       <div className="h-[90%] w-[85%] md:w-[90%] xl:max-w-[1300px] mx-auto flex flex-col items-center gap-10">
         <SectionTitle number="02" text="Meet your crew" />
         <div className="h-full flex flex-col items-center gap-10 lg:flex-row lg:w-full lg:items-end lg:mb-16">
-          <div className="border-b border-gray-700 w-full flex justify-center md:w-auto md:absolute md:bottom-0 lg:right-20 lg:w-1/2">
+          <div className="border-b border-gray-700 w-full flex justify-center md:w-auto md:absolute md:bottom-0 lg:right-20 lg:w-1/2 lg:border-0">
             <div className="w-44 md:w-72 lg:w-96 xl:w-[30rem]">
               <motion.img
                 src={crew[index].image.webp}
@@ -88,7 +88,7 @@ const Crew = ({ crew }) => {
                       index === tab.id - 1
                         ? "bg-white"
                         : "hover:bg-dark-300 bg-dark-400"
-                    } w-[0.6rem] aspect-square rounded-full cursor-pointer lg:w-3`}
+                    } transition ease-in-out duration-300 w-[0.6rem] aspect-square rounded-full cursor-pointer lg:w-3`}
                     key={tab.id}
                     role="tab"
                     onClick={() => setIndex(tab.id - 1)}

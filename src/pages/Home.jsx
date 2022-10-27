@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Home = () => {
+  const handleDestinationBg = () => {
+    document.body.className = "";
+    document.body.classList.add("destination");
+  };
+
   const sectionVariants = {
     hidden: {
       opacity: 0,
@@ -47,6 +52,7 @@ const Home = () => {
           <Link
             to="destination"
             className="relative z-20 cursor-pointer p-[min(15vw,4.8rem)] bg-white text-dark-500 text-xl tracking-widest font-ff-serif uppercase aspect-square rounded-full flex justify-center items-center md:text-2xl lg:text-4xl lg:mt-24 after:absolute after:bg-white/25 after:inset-0 after:rounded-full after:-z-[1] after:opacity-0 hover:after:opacity-100 hover:after:scale-150 focus:after:scale-150 after:transition after:duration-300 after:ease-in-out"
+            onClick={handleDestinationBg}
           >
             Explore
           </Link>

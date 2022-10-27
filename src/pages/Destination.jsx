@@ -84,7 +84,7 @@ const Destination = ({ destinations }) => {
                       index === tab.id - 1
                         ? "border-b-white"
                         : "border-b-transparent"
-                    } cursor-pointer py-2 border-b-2 text-white lg:text-xl`}
+                    } transition ease-in-out duration-300 cursor-pointer py-2 border-b-2 text-white lg:text-xl`}
                     onClick={() => setIndex(tab.id - 1)}
                     key={tab.id}
                     aria-selected={index === tab.id - 1 ? "true" : "false"}

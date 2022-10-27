@@ -6,6 +6,21 @@ import SectionTitle from "../components/SectionTitle";
 const Technology = ({ technology }) => {
   const [index, setIndex] = useState(0);
 
+  const technologyTabs = [
+    {
+      id: 1,
+      content: 1,
+    },
+    {
+      id: 2,
+      content: 2,
+    },
+    {
+      id: 3,
+      content: 3,
+    },
+  ];
+
   const sectionVariants = {
     hidden: {
       opacity: 0,
@@ -60,20 +75,28 @@ const Technology = ({ technology }) => {
           </picture>
         </motion.div>
         <div className="flex flex-col items-center gap-2 row-start-2 row-end-3 col-start-2 col-end-8 lg:flex-row lg:gap-16 xl:gap-20 xl:col-start-3">
-          <motion.nav
+          <motion.div
             className="nav flex gap-3 mb-4 lg:flex-col lg:gap-5 xl:gap-8"
             variants={childVariants}
           >
-            <div className="font-ff-serif rounded-full border border-gray-700 w-10 aspect-square flex items-center justify-center cursor-pointer sm:w-12 bg-white/90 text-dark-500 lg:w-16 lg:text-xl xl:text-2xl xl:w-[4.5rem]">
-              1
-            </div>
-            <div className="font-ff-serif rounded-full border border-gray-700 w-10 aspect-square flex items-center justify-center cursor-pointer sm:w-12 lg:w-16 lg:text-xl xl:text-2xl xl:w-[4.5rem]">
-              2
-            </div>
-            <div className="font-ff-serif rounded-full border border-gray-700 w-10 aspect-square flex items-center justify-center cursor-pointer sm:w-12 lg:w-16 lg:text-xl xl:text-2xl xl:w-[4.5rem]">
-              3
-            </div>
-          </motion.nav>
+            {technologyTabs.map((tab) => {
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setIndex(tab.id - 1)}
+                  aria-selected={index === tab.id - 1 ? "true" : "false"}
+                  role="tab"
+                  className={`${
+                    index === tab.id - 1
+                      ? "bg-white/90 text-dark-500"
+                      : "text-white/90"
+                  } font-ff-serif rounded-full border border-gray-700 w-10 aspect-square flex items-center justify-center cursor-pointer sm:w-12 lg:w-16 lg:text-xl xl:text-2xl xl:w-[4.5rem] transition ease-in-out duration-300`}
+                >
+                  {tab.content}
+                </button>
+              );
+            })}
+          </motion.div>
           <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-5">
             <motion.p
               className="uppercase font-ff-sans-cond text-fs-200 text-accent-500 lg:text-base"
@@ -85,17 +108,13 @@ const Technology = ({ technology }) => {
               className="uppercase font-ff-serif text-2xl sm:text-3xl lg:text-5xl 2xl:text-6xl"
               variants={childVariants}
             >
-              Launch Vehicle
+              {technology[index].name}
             </motion.h4>
             <motion.p
               className="text-center text-accent-500 pt-2 px-4 sm:px-0 sm:w-[70%] lg:w-full lg:text-start 2xl:w-[80%] xl:text-lg xl:leading-8"
               variants={childVariants}
             >
-              A launch vehicle or carrier rocket is a rocket-propelled vehicle
-              used to carry a payload from Earth's surface to space, usually to
-              Earth orbit or beyond. Our WEB-X carrier rocket is the most
-              powerful in operation. Standing 150 metres tall, it's quite an
-              awe-inspiring sight on the launch pad!
+              {technology[index].description}
             </motion.p>
           </div>
         </div>
