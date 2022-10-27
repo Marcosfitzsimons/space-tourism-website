@@ -135,7 +135,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
             <Route path='/' exact element={<Home />} />
             <Route path='destination' element={<Destination destinations={destinations} />} />
