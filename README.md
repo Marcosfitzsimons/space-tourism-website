@@ -45,8 +45,11 @@ Users should be able to:
 
 ### What I learned
 
-Accesibility:
-Attribute arial-selected on buttons, indicates the current "selected" tab
+#### Accesibility:
+
+- aria-hidden ---> removes that element and all of its children from the accessibility tree. (NavLinks numbers - SectionTitle numbers)
+- aria-selected attribute ---> to indicates the current "selected" tab
+- sr-only ---> to hide an element visually without hiding it from screen readers
 
 Switch between each page with React Router DOM v6.3
 
