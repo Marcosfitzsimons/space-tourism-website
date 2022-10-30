@@ -25,20 +25,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./src/assets/screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Here](https://github.com/Marcosfitzsimons/space-tourism-website)
+- Live Site URL: [Here](https://space-tourism-website-lyart.vercel.app/)
 
 ### Built with
 
@@ -48,20 +40,15 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://www.framer.com/motion/) - Motion library for React
+- [Framer Motion](https://www.framer.com/motion/) - Motion library for React
 - [TailwindCSS](https://tailwindcss.com/) - For styles
 
 ### What I learned
 
 Accesibility:
-On the tab buttons --> attribute arial-selected, indicates the current "selected" state
+Attribute arial-selected on buttons, indicates the current "selected" tab
 
-React router dom v6.3
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+Switch between each page with React Router DOM v6.3
 
 ## Author
 
