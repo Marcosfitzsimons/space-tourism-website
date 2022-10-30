@@ -72,7 +72,10 @@ const Header = () => {
                   } transition cursor-pointer py-8 font-ff-sans-cond uppercase tracking-widest border-b-[3px] flex items-center gap-2 text-[.9rem] lg:text-fs-300 hover:translate-x-1`
                 }
               >
-                <span className="hidden font-bold lg:flex lg:text-[1.05rem] pr-1">
+                <span
+                  className="hidden font-bold lg:flex lg:text-[1.05rem] pr-1"
+                  aria-hidden="true"
+                >
                   01
                 </span>
                 Home
@@ -89,7 +92,10 @@ const Header = () => {
                   } transition cursor-pointer py-8 font-ff-sans-cond uppercase tracking-widest border-b-[3px] flex items-center gap-2 text-[.9rem] lg:text-fs-300 hover:translate-x-1`
                 }
               >
-                <span className="hidden font-bold lg:flex lg:text-[1.05rem]">
+                <span
+                  className="hidden font-bold lg:flex lg:text-[1.05rem]"
+                  aria-hidden="true"
+                >
                   02
                 </span>
                 Destination
@@ -106,7 +112,10 @@ const Header = () => {
                   } transition cursor-pointer py-8 font-ff-sans-cond uppercase tracking-widest border-b-[3px]  flex items-center gap-2 text-[.9rem] lg:text-fs-300 hover:translate-x-1`
                 }
               >
-                <span className="hidden font-bold lg:flex lg:text-[1.05rem]">
+                <span
+                  className="hidden font-bold lg:flex lg:text-[1.05rem]"
+                  aria-hidden="true"
+                >
                   03
                 </span>
                 Crew
@@ -123,7 +132,10 @@ const Header = () => {
                   } transition cursor-pointer py-8 font-ff-sans-cond uppercase tracking-widest border-b-[3px] flex items-center gap-2 text-[.9rem] lg:text-fs-300 hover:translate-x-1`
                 }
               >
-                <span className="hidden font-bold lg:flex lg:text-fs-300">
+                <span
+                  className="hidden font-bold lg:flex lg:text-fs-300"
+                  aria-hidden="true"
+                >
                   04
                 </span>
                 Technology
@@ -177,7 +189,9 @@ const Header = () => {
                       } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
                     }
                   >
-                    <span className="font-bold pr-1">01</span>
+                    <span className="font-bold pr-1" aria-hidden="true">
+                      01
+                    </span>
                     Home
                   </NavLink>
                 </li>
@@ -197,7 +211,9 @@ const Header = () => {
                       } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
                     }
                   >
-                    <span className="font-bold">02</span>
+                    <span className="font-bold" aria-hidden="true">
+                      02
+                    </span>
                     Destination
                   </NavLink>
                 </li>
@@ -217,7 +233,9 @@ const Header = () => {
                       } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
                     }
                   >
-                    <span className="font-bold">03</span>
+                    <span className="font-bold" aria-hidden="true">
+                      03
+                    </span>
                     Crew
                   </NavLink>
                 </li>
@@ -237,7 +255,9 @@ const Header = () => {
                       } flex items-center gap-3 cursor-pointer py-2 border-b-[2px] transition`
                     }
                   >
-                    <span className="font-bold">04</span>
+                    <span className="font-bold" aria-hidden="true">
+                      04
+                    </span>
                     Technology
                   </NavLink>
                 </li>
