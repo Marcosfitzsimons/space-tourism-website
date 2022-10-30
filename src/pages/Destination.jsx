@@ -72,7 +72,7 @@ const Destination = ({ destinations }) => {
           <div className="mx-auto w-52 md:w-[22vw] lg:w-[50%]">
             <motion.img
               src={destinations[index].image.webp}
-              alt="moon"
+              alt={destinations[index].name}
               variants={childVariants}
             />
           </div>

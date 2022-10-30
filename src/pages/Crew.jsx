@@ -74,7 +74,7 @@ const Crew = ({ crew }) => {
             <div className="w-44 md:w-72 lg:w-96 xl:w-[30rem]">
               <motion.img
                 src={crew[index].image.webp}
-                alt="crew"
+                alt={crew[index].name}
                 style={imgStyle}
                 variants={childVariants}
               />

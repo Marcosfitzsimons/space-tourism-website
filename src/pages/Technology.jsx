@@ -75,7 +75,10 @@ const Technology = ({ technology }) => {
               media="(min-width: 765px)"
               srcSet={technology[index].images.portrait}
             />
-            <img src={technology[index].images.landscape} alt="technology" />
+            <img
+              src={technology[index].images.landscape}
+              alt={technology[index].name}
+            />
           </picture>
         </motion.div>
         <div className="flex flex-col items-center gap-2 row-start-2 row-end-3 col-start-2 col-end-8 lg:flex-row lg:gap-16 xl:gap-20 xl:col-start-3">
